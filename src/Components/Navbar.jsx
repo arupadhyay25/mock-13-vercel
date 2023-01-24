@@ -12,14 +12,14 @@ const Navbar = () => {
       <div>
         <Link to={"/"}>
           <img
-            src="https://play-lh.googleusercontent.com/wK8d12hBmOgqOVDsgezN6q1h8QQvPkTxpqFwUAWcvim243Gvx7K674JDBfqGSVh6r0gc"
-            width="60px"
+            src="http://levelupcollege.com/wp-content/uploads/2022/01/Masai_Logo.jpeg"
+            width="100px"
             alt="logo"
           />
         </Link>
       </div>
       <div>
-        <Heading>Grow Calculator</Heading>
+        <Heading>Masai Job App</Heading>
       </div>
       <div>
         {!auth ? (
@@ -33,7 +33,7 @@ const Navbar = () => {
             </Center>
           </Link>
         ) : (
-          <Text textTransform={"capitalize"}>Welcome {token.name}</Text>
+          <Text textTransform={"capitalize"}>Welcome {token&&token.name}</Text>
         )}
       </div>
     </div>

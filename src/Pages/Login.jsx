@@ -35,7 +35,11 @@ const Login = () => {
       let payload = { email: username, password: password };
       dispatch(login(payload)).then((r) => {
         if (r.type == "LOGIN_SUCCESS") {
-          Navigate("/admin");
+          if (username.includes("@masaischool.com")) {
+            Navigate("/admin");
+          } else {
+            Navigate("/user");
+          }
         }
       });
     }
@@ -51,12 +55,8 @@ const Login = () => {
         email: username,
         password: password,
       };
-      dispatch(signup(payload)).then((r) => {
-        console.log(r);
-      });
+      dispatch(signup(payload));
     }
-    // setpassword("");
-    // setusername("");
   };
 
   return (
@@ -117,7 +117,9 @@ const Login = () => {
                   </div>
                   <br />
                   <div>
-                    <Text fontStyle={"italic"} color="blue" fontSize={"small"}>New User ? SignUp</Text>
+                    <Text fontStyle={"italic"} color="blue" fontSize={"small"}>
+                      New User ? SignUp
+                    </Text>
                   </div>
                   <br />
                   <Button w={"100%"} type="submit">

@@ -1,7 +1,12 @@
 //Write the ActionCreator functions here
 
 import axios from "axios";
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, SIGNIN_SUCCESS } from "./actionTypes";
+import {
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  SIGNIN_SUCCESS,
+} from "./actionTypes";
 
 export let postloginrequest = () => {
   return {
@@ -22,7 +27,7 @@ export let postsigninsuccess = () => {
 export let login = (payload) => (dispatch) => {
   dispatch(postloginrequest());
   return axios
-    .post("https://rich-erin-nematode-shoe.cyclic.app/login", payload)
+    .post("https://scary-elk-sneakers.cyclic.app/login", payload)
     .then((response) => {
       if (response.data.token.length > 0) {
         return dispatch(postloginsuccess(response.data.Userdata[0]));
@@ -36,11 +41,10 @@ export let login = (payload) => (dispatch) => {
 export let signup = (payload) => (dispatch) => {
   dispatch(postloginrequest());
   return axios
-    .post("https://rich-erin-nematode-shoe.cyclic.app/signup", payload)
+    .post("https://scary-elk-sneakers.cyclic.app/signup", payload)
     .then((response) => {
-      console.log(response)
-        alert("Succes Now login !!")
-        return dispatch(postloginsuccess());
+      alert("Succes Now login !!");
+      return dispatch(postloginsuccess());
     })
     .catch((e) => {
       alert("Wrong credentials");

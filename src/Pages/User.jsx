@@ -1,25 +1,20 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { JobOffers } from "../Components/JobOffers";
+import { JobUser } from "../Components/JobUser";
 import { Profile } from "../Components/Profile";
-import JobsForm from "./JobsForm";
 
-export const Admin = () => {
-  let [alert, setalert] = useState(false);
+export const User = () => {
   return (
-    <div style={{ width: "90%", margin: "auto", display: "flex" }}>
+    <div style={{ width: "80%", margin: "auto", display: "flex" }}>
       <Tabs isFitted variant="enclosed" w={"100%"}>
         <TabList mb="1em">
-          <Tab>Jobs Form page</Tab>
-          <Tab>Jobs Form Listing page</Tab>
+          <Tab>Jobs List</Tab>
           <Tab>Profile</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
-            <JobsForm alert={alert} setalert={setalert} />
-          </TabPanel>
-          <TabPanel>
-            <JobOffers alert={alert} />
+            <JobUser />
           </TabPanel>
           <TabPanel>
             <Profile />
